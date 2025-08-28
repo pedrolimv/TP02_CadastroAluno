@@ -34,8 +34,8 @@ class AlunoActivity : AppCompatActivity(R.layout.activity_aluno) {
             if(nome == "Sem aluno" || nome == "") {
                 txvNomeAluno.text = "Sem aluno"
                 txvMatriculaAluno.text = "Sem matrícula"
+                alertaErro()
             }
-
             else {
                 val matricula = Random.nextInt(100000, 999999).toString()
                 var aluno = Aluno(nome, matricula)
@@ -55,6 +55,13 @@ class AlunoActivity : AppCompatActivity(R.layout.activity_aluno) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Sucesso")
         builder.setMessage("Matrícula gerada!")
+        var alert = builder.create()
+        alert.show()
+    }
+    fun alertaErro() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Erro")
+        builder.setMessage("Matrícula não gerada!")
         var alert = builder.create()
         alert.show()
     }
